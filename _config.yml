@@ -8,7 +8,12 @@ logo: false
 paginate: 12
 baseurl: ""
 domain_name: "http://Poiurity.github.io"
+asset_url: /assets
 google_analytics: "UA-XXXXXXXX-X"
+comment:
+    provider: "disqus"
+    disqus:
+      shortname: "poiurity"
 plugins: [jekyll-paginate]
 
 # Details for the RSS feed generator

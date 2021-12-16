@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "my first post"
+comments: true
 ---
 
 this is how to print your words on **Python**:
