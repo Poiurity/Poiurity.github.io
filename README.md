@@ -1,62 +1,56 @@
-# Kasper
+# Personal theme adjusted
 
-This is a port of Ghost's default theme [Casper v1](https://github.com/tryghost/casper) for Jekyll. Here is a live [demo](https://rosario.io/kasper). 
+*Ghost*의 **Kasper** 테마 사용, 테마 제작자가 요구한 부분 추가 및 수정:
 
-Feel free to fork, change, modify and re-use it.
+* `gem install jekyll-paginate`
+* **baseurl -> " "**
+* `gem build`
 
-## Installation
 
-    git clone https://github.com/rosario/kasper.git
-    cd kasper
-    gem install jekyll
-    gem install jekyll-paginate
-    
-## Change _config.yml
+# Remove Dummy texts 
 
-Change the following settings in _config.yaml. Most likely you want the `baseurl: ""`
+기본으로 첨부되어 있는 더미 텍스트 및 게시물 등 삭제 및 개인정보로 대체:
 
+* **name: YK's New Blog**
+* **description: study & others**
+* **meta_description: "Codes and life stuffs"**
+* **domain_name:** `"http://Poiurity.github.io"`
+* **author: "LEE YEONGUK"**
+* **about me ->** `about.md` **: Blog discription**
+* 이 외에도 `https://Poiurity.github.io`에 나타나는 모든 개인정보 포함
+
+# Add Images
+`favicon.ico` 추가 및 profile 이미지 추가
+
+* **profile:**
+    ![profile](https://raw.githubusercontent.com/Poiurity/Poiurity.github.io/main/assets/images/profile.png)
+* **favicon:**
+    ![favicon](https://raw.githubusercontent.com/Poiurity/Poiurity.github.io/main/assets/favicon.ico)
+
+# Add plug-ins
+*disqus*, *jekyll-admin* plug-in 추가
+
+* **disqus** 
+**default(kasper) :** disqus plugin 추가 포맷 존재 및 `disqus.html` 파일을 통해 유동적으로 실행
+**modified:** `post.html`에 아래의 코드 추가
+```html
+<h2>Comments</h2>
+            <div id="disqus_thread"></div>
+            <script>
+				let PAGE_URL = "{{site.url}}{{page.url}}"
+				let PAGE_IDENTIFIER = "{{page.url}}"
+				var disqus_config = function () {
+				this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+				this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+				};
+				(function() { // DON'T EDIT BELOW THIS LINE
+				var d = document, s = d.createElement('script');
+				s.src = 'https://poiurity.disqus.com/embed.js';
+				s.setAttribute('data-timestamp', +new Date());
+				(d.head || d.body).appendChild(s);
+				})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 ```
-baseurl: ""
-domain_name: "yourblog-domain.com"
-```
-
-## How to use it
-
-Build page and start local web server
-
-    jekyll serve
-
-Build page into `_site` folder
-
-    jekyll build
-
-## Kasper theme includes
-
-* Pagination
-* Rss
-* Google Analytics Tracking code
-* Code Syntax Highlight
-* Author's profile with picture
-* Disqus comments
-
-## Screenshots
-
-![index page](https://raw.github.com/rosario/kasper/master/assets/images/kasper-theme-index.png)
-![post page](https://raw.github.com/rosario/kasper/master/assets/images/kasper-theme-post.png)
-
-
-## Thanks
-
-Most of the work has been already done by the Ghost team, I've just ported Casper to Jekyll. 
-I've also added few things specific to Jekyll and some minor style changes.
-
-## Copyright & License
-
-Copyright (C) 2013 Ghost Foundation - Released under the MIT License.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+* **jekyll-admin**
+`GemFile` 에 코드 `gem "jekyll-admin"` , `group: :jekyll_plugins` 추가 및 `bundle install` 진행
