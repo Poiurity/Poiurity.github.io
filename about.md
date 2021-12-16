@@ -1,6 +1,12 @@
 ---
 layout: page
-title: About me 
+title: details
 ---
 
-This is a static page. It could be an 'about page' if you'd like.
+Introduce about this blog:
+
+#### Who am I?
+I am LEE YEONGUK, study for Software Engineering
+
+#### What's this blog for?
+The posts that I wrote here are about codes and my life experinces
